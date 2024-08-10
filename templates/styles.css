@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+li.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+li.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}

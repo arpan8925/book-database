@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book Rating</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Edit Book Rating</h1>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Book details -->
+    <h2>{{ book.name }}</h2>
+    <p>Current Rating: {{ book.rating }}</p>
+
+    <!-- Edit rating form -->
+    <form method="POST" action="{{ url_for('edit_rating', book_id=book.id) }}">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.rating.label }}<br>
+            {{ form.rating(step="0.1") }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>
